@@ -17,12 +17,12 @@ public class TextController : MonoBehaviour {
 	void Update () {
 	
 		print (myState);
-		if 		(myState == States.cell) 		{cell();} 
+		if 	(myState == States.cell) 	{cell();} 
 		else if (myState == States.sheets_0) 	{sheets_0();}
 		else if (myState == States.sheets_1) 	{sheets_1();} 
-		else if (myState == States.lock_0) 		{lock_0();} 
-		else if (myState == States.lock_1) 		{lock_1();}
-		else if (myState == States.mirror) 		{mirror();}
+		else if (myState == States.lock_0) 	{lock_0();} 
+		else if (myState == States.lock_1) 	{lock_1();}
+		else if (myState == States.mirror) 	{mirror();}
 		else if (myState == States.cell_mirror) {cell_mirror();}
 		else if (myState == States.corridor_0) 	{corridor_0();}   
 			
