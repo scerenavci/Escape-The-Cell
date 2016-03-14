@@ -17,6 +17,7 @@ public class TextController : MonoBehaviour {
 	void Update () {
 	
 		print (myState);
+
 		if 		(myState == States.cell) 		{cell();} 
 		else if (myState == States.medicines_0) 	{medicines_0();}
 		else if (myState == States.medicines_1) 	{medicines_1();} 
