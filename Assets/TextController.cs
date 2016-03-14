@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
 public class TextController : MonoBehaviour {
 
 	public Text text;
-	private enum States {cell, mirror, sheets_0, lock_0, cell_mirror, sheets_1, lock_1, corridor_0};
+	private enum States {cell, flashlight, medicines_0, lock_0, cell_flashlight, medicines_1, lock_1, corridor_0};
 	private States myState;
 	// Use this for initialization
 	void Start () {
@@ -17,6 +17,15 @@ public class TextController : MonoBehaviour {
 	void Update () {
 	
 		print (myState);
+<<<<<<< HEAD
+		if 		(myState == States.cell) 		{cell();} 
+		else if (myState == States.medicines_0) 	{medicines_0();}
+		else if (myState == States.medicines_1) 	{medicines_1();} 
+		else if (myState == States.lock_0) 		{lock_0();} 
+		else if (myState == States.lock_1) 		{lock_1();}
+		else if (myState == States.flashlight) 		{flashlight();}
+		else if (myState == States.cell_flashlight) {cell_flashlight();}
+=======
 		if 	(myState == States.cell) 	{cell();} 
 		else if (myState == States.sheets_0) 	{sheets_0();}
 		else if (myState == States.sheets_1) 	{sheets_1();} 
@@ -24,6 +33,7 @@ public class TextController : MonoBehaviour {
 		else if (myState == States.lock_1) 	{lock_1();}
 		else if (myState == States.mirror) 	{mirror();}
 		else if (myState == States.cell_mirror) {cell_mirror();}
+>>>>>>> 48eb06df7766c16609c5467fa903cb1bda147b3f
 		else if (myState == States.corridor_0) 	{corridor_0();}   
 			
 		}
@@ -31,75 +41,78 @@ public class TextController : MonoBehaviour {
 	
 	void cell () {
 	
-		text.text = "You are in a prison cell, and you want to escape. "
-					+ "There are some dirty sheets on the bed, " 
-					+ "a mirror on the wall, and a door is locked from the outside.\n\n"
-					+ "Press S to view Sheets, M to view Mirror and L to view Lock";
+		text.text = "You are in a madhouse cell and you want to escape. "
+					+"The cell has a small window just below the ceiling and the " 
+					+"only light source is street lamps. You can barely see.\n"
+					+"There are some medicine in the medicine chest, a flashlight "
+					+"on the table and a door is locked from the outside.\n\n"
+					+"Press M to view medicines, F to view Flashlight, L to view Lock.";
 					
-		if (Input.GetKeyDown(KeyCode.S))		 {myState = States.sheets_0;} 
-		if (Input.GetKeyDown(KeyCode.M))		 {myState = States.mirror;}
+		if (Input.GetKeyDown(KeyCode.M))		 {myState = States.medicines_0;} 
+		if (Input.GetKeyDown(KeyCode.F))		 {myState = States.flashlight;}
 		if (Input.GetKeyDown(KeyCode.L))		 {myState = States.lock_0;}
 	}
 	
-	void mirror () {
+	void flashlight () {
 		
-		text.text = "The dirty old mirror on the wall seems loose.\n\n "
-					+ "Press T to Take the mirror, R to Return to cell";
+		text.text = "The broken old flashlight on the table seems doesn’t work.\n\n"
+					+"Press T to Take the flashlight, R to Return to cell";
 					
-		if (Input.GetKeyDown(KeyCode.T)) 			{myState = States.cell_mirror;}
+		if (Input.GetKeyDown(KeyCode.T)) 			{myState = States.cell_flashlight;}
 		else if (Input.GetKeyDown(KeyCode.R)) 		{myState = States.cell;}
 		
 		
 	}
 	
-	void cell_mirror () {
+	void cell_flashlight () {
 		
-		text.text = "You are still in your cell, and you still want to escape! There are "
-					+ "some dirty sheets on the bed, a mark where the mirror was,"
-					+ "and that pesky door is still there, and firmly lockedé\n\n"
-					+ "Press S to view Sheets, or L to view Lock";
+		text.text = "You are still in your cell and you still want to escape ! "
+					+"The old flashlight works ! How lucky you are ! "
+					+"There are some handwritings on pill boxes and that pesky door is "
+					+"still there, and firmly locked.\n\n"
+					+"Press M to view Medicines, or L to view Lock.";
 		
-		if (Input.GetKeyDown(KeyCode.S))		 {myState = States.sheets_1;}
+		if (Input.GetKeyDown(KeyCode.M))		 {myState = States.medicines_1;}
 		if (Input.GetKeyDown(KeyCode.L))		 {myState = States.lock_1;}
 	}
 	
 	
-	void sheets_0 () {
+	void medicines_0 () {
 	
-		text.text = "You can't believe you sleep in these things. "
-					+ "Surely it's time somebody changed them. " 
-					+ "The pleasures of prison life I guess! \n\n"
-					+ "Press R to Return to roaming your cell.";
+		text.text = "There are many pill boxes but all are empty, you try to find "
+					+"something sharp to open the door but there is nothing to do this. "
+					+"This medicine chest is totally rubbish !\n\n"
+					+"Press R to Return to roaming your cell.";
 					
 		if (Input.GetKeyDown(KeyCode.R))		 {myState = States.cell;}
 		
 		
 	}
 	
-	void sheets_1 () {
+	void medicines_1 () {
 		
-		text.text = "Holding a mirror in your hand doesn't make the sheets look any better. \n\n. "
-					+ "Press R to return to roaming your cell";
+		text.text = "The handwritings doesn’t include any useful information like a "
+					+"password or a hint to open the lock.\n\n"
+					+"Press R to return to roaming your cell";
 		
 		if (Input.GetKeyDown(KeyCode.R)) 		{myState = States.cell;}
 	}
 	
 	void lock_0 () {
 		
-		text.text = "This is one of those button locks. You have no idea what the "
-					+ "combination is. You wish you could somehow see where the dirty  " 
-					+ "fingerprints were, maybe taht would help.\n\n"
-					+ "Press R to return to roaming your cell";
+		text.text = "This is one of those button locks. You have no idea what the combination is. "
+					+"You wish you could somehow see where the dirty fingerprints were, maybe that would help.\n\n"
+					+"Press R to return to roaming your cell";
 		
 		if (Input.GetKeyDown(KeyCode.R))		 {myState = States.cell;}
 	}
 	
 	void lock_1 () {
 		
-		text.text = "You carefully put the mirror through the bars, and turn it round "
-					+ "so you can see the lock. You can just make out fingerprints around  " 
-					+ "the buttons. You press the dirty buttons, and hear the click.\n\n"
-					+ "Press O to Open, or R to roaming your cell";
+		text.text = "You hold the flashlight on the buttons and can’t believe your eyes ! "
+					+"Some fingerprints on some buttons, you need to find the true combination "
+					+"to open the door.\n\n"
+					+"Press O to Open, or R to roaming your cell";
 		
 		if (Input.GetKeyDown(KeyCode.O)) 		{myState = States.corridor_0;} 
 		else if (Input.GetKeyDown(KeyCode.R)) 	{myState = States.cell;}	
@@ -108,8 +121,8 @@ public class TextController : MonoBehaviour {
 	
 	void corridor_0 () {
 		
-		text.text = "You are FREE !! \n\n "
-					+ "Press P play again";
+		text.text = "You are FREE !! \n\n"
+					+"Press P play again";
 		
 		if (Input.GetKeyDown(KeyCode.P))		 {myState = States.cell;}
 	}
