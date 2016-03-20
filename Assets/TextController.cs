@@ -20,11 +20,11 @@ public class TextController : MonoBehaviour {
 	
 		print (myState);
 
-		if (myState == States.cell)					{cell();} 
+		if (myState == States.cell)				{cell();} 
 		else if (myState == States.medicines_0) 	{medicines_0();}
 		else if (myState == States.medicines_1) 	{medicines_1();} 
-		else if (myState == States.lock_0)			{lock_0();} 
-		else if (myState == States.lock_1)			{lock_1();}
+		else if (myState == States.lock_0)		{lock_0();} 
+		else if (myState == States.lock_1)		{lock_1();}
 		else if (myState == States.flashlight) 		{flashlight();}
 		else if (myState == States.cell_flashlight) {cell_flashlight();}
 		else if (myState == States.corridor_0) 		{corridor_0();}
@@ -32,7 +32,7 @@ public class TextController : MonoBehaviour {
 		else if (myState == States.stairs_1)		{stairs_1();} 
 		else if (myState == States.stairs_2)		{stairs_2();} 
 		else if (myState == States.courtyard)		{courtyard();} 
-		else if (myState == States.floor)			{floor();} 
+		else if (myState == States.floor)		{floor();} 
 		else if (myState == States.corridor_1)		{corridor_1();} 
 		else if (myState == States.corridor_2)		{corridor_2();} 
 		else if (myState == States.corridor_3)		{corridor_3();} 
