@@ -4,10 +4,11 @@ using UnityEngine.UI;
 
 public class TextController : MonoBehaviour {
 
+
 	public Text text;
 	private enum States {cell, flashlight, medicines_0, lock_0, cell_flashlight,
-						medicines_1, lock_1, corridor_0, stairs_0, stairs_1, stairs_2,
-						courtyard, floor, corridor_1, corridor_2, corridor_3,closet_door, in_closet};
+				medicines_1, lock_1, corridor_0, stairs_0, stairs_1, stairs_2,
+				courtyard, floor, corridor_1, corridor_2, corridor_3,closet_door, in_closet};
 	private States myState;
 	// Use this for initialization
 	void Start () {
@@ -181,7 +182,7 @@ public class TextController : MonoBehaviour {
 		+"Press M to view Medicines, or L to view Lock.";
 		
 		if (Input.GetKeyDown(KeyCode.M))		{myState = States.medicines_1;}
-		if (Input.GetKeyDown(KeyCode.L))			{myState = States.lock_1;}
+		if (Input.GetKeyDown(KeyCode.L))		{myState = States.lock_1;}
 	}
 	
 	
